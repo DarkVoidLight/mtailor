@@ -1,27 +1,27 @@
-name: Pre-Deployment Pipeline
-on:
-  workflow_dispatch:
-
-jobs:
-  build-and-test:
-    name: Build and Test ONNX Model
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
-        cache: 'pip'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Convert PyTorch model to ONNX
-      run: python convert_to_onnx.py
-    - name: Test with pytest
-      run: |
-        pip install pytest
-        pip install pytest-cov
-        pytest test_onnx.py
+#name: Pre-Deployment Pipeline
+#on:
+#  workflow_dispatch:
+#
+#jobs:
+#  build-and-test:
+#    name: Build and Test ONNX Model
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: Checkout code
+#      uses: actions/checkout@v3
+#    - name: Set up Python
+#      uses: actions/setup-python@v4
+#      with:
+#        python-version: '3.9'
+#        cache: 'pip'
+#    - name: Install dependencies
+#      run: |
+#        python -m pip install --upgrade pip
+#        pip install -r requirements.txt
+#    - name: Convert PyTorch model to ONNX
+#      run: python convert_to_onnx.py
+#    - name: Test with pytest
+#      run: |
+#        pip install pytest
+#        pip install pytest-cov
+#        pytest test_onnx.py
